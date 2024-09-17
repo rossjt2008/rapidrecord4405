@@ -10,7 +10,8 @@
 	text-align:center;
 	font-family:'Kode Mono';
 	color:purple;
-	font-weight:bolder;
+	font-weight:700;
+	font-size:40px;
 
 	background:linear-gradient(to right, rgb(43, 158, 240), rgb(172, 56, 235));
 	-webkit-background-clip:text;
