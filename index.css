@@ -1,0 +1,18 @@
+#main {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100vw;
+	height:100vh;
+	background-color:rgb(30,30,30);
+}
+#title {
+	text-align:center;
+	font-family:'Kode Mono';
+	color:purple;
+	font-weight:bolder;
+
+	background:linear-gradient(to right, rgb(43, 158, 240), rgb(172, 56, 235));
+	-webkit-background-clip:text;
+	-webkit-text-fill-color: transparent;
+}
