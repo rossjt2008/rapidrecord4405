@@ -27,6 +27,7 @@
 
 	background:linear-gradient(to right, #d56bffff, #8f5fffff);
 	-webkit-background-clip:text;
+	background-clip:text;
 	-webkit-text-fill-color: transparent;
 }
 #progress-bar {
