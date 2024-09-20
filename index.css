@@ -105,6 +105,7 @@
 	margin-top:20px;
 	height:60px;
 	border-radius:30px;
+	transition:background-color 0.5s, color 0.5s, width 0.5s, margin-left 0.5s;
 }
 #done {
 	background-color:#d56bffff;
@@ -119,6 +120,13 @@
 	font-size:40px;
 	padding-top:15px;
 	font-weight:700;
+}
+
+.selected-button {
+	background-color:white;
+	color:rgb(30,30,30);
+	width:85vw;
+	margin-left:7.5vw;
 }
 
 @keyframes gainHours {

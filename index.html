@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-		<script src="index.js"></script>
+		<script src="index.js" defer></script>
 	</head>
 	<body>
 		<!-- IMPORTANT NOTICE
@@ -33,15 +33,17 @@
 			<h1 id="name">Ross Taylor</h1>
 			<div id="log-hours-container">
 				<p id="log-text">Log Hours: </p>
-				<div id="hours">"totalhours" hours</div>
+				<div id="hours">0 hours</div>
 			</div>
 			<div id="buttons">
-				<button class="hour-select">1 hour</button>
-				<button class="hour-select">2 hours</button>
-				<button class="hour-select">3 hours</button>
-				<button class="hour-select">4 hours</button>
-				<button class="hour-select">5 hours</button>
-				<input class="hour-select" type="text" id="customhours" /><br><br>
+				<!-- Right over here, the toggleHour function takes in the hours (1 - 5) and -->
+				<!-- whatever button element (noted as 'this') called the function.          -->
+				<button class="hour-select" onclick="toggleHour(1, this)">1 hour</button>
+				<button class="hour-select" onclick="toggleHour(2, this)">2 hours</button>
+				<button class="hour-select" onclick="toggleHour(3, this)">3 hours</button>
+				<button class="hour-select" onclick="toggleHour(4, this)">4 hours</button>
+				<button class="hour-select" onclick="toggleHour(5, this)">5 hours</button>
+				<input class="hour-select" type="text" id="customhours" placeholder="[ Custom ]"><br><br>
 			</div>
 		</div>
 		
