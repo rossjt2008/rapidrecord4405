@@ -52,3 +52,7 @@ function toggleHour(h,button) {
 	//and then we update the 'hours' counter thing.
 	document.getElementById("hours").textContent = (hours.reduce((a,b) => a + b)) + " hours"
 }
+
+function clickDone() {
+	alert("Nothing");
+}

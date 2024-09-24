@@ -120,6 +120,7 @@
 	font-size:40px;
 	padding-top:15px;
 	font-weight:700;
+	cursor:pointer;
 }
 
 .selected-button {
