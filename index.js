@@ -7,7 +7,7 @@ var button3 = 3;
 var button4 = 4;
 var button5 = document.getElementById("customhours").value;
 var totalhours = button1+button2+button3+button4+button5;
-
+var previoushours = 15; //Will take from sheets, json, or other database in final product.
 
 
 
