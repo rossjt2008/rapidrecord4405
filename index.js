@@ -54,5 +54,5 @@ function toggleHour(h,button) {
 }
 
 function clickDone() {
-	alert("Nothing");
+	self.location = "submitted.html";  //or whichever file comes next
 }

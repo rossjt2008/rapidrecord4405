@@ -17,7 +17,7 @@
 	z-index:20;
 
 }
-#desc {
+#title {
 	text-align:center;
 	font-family:'Kode Mono';
 	color:purple;
@@ -30,12 +30,33 @@
 	background-clip:text;
 	-webkit-text-fill-color: transparent;
 }
-
-#nameAndPass {
+#name {
+	color:rgb(255, 255, 255);
+	font-family:'Kode Mono';
+	text-align:center;
+	font-size:40px;
+	margin-top:110px;
+	margin-bottom:5px;
+}
+#log-hours-container {
+	width:100vw;
+	height:fit-content;
+	text-align:center;
+}
+#log-text {
+	width:fit-content;
+	color:rgb(200,200,200);
+	font-family:'DM Mono';
+	text-align:center;
+	display:inline-block;
+	font-size:20px;
+	
+}
+#buttons {
 	width:100vw;
 	height:fit-content;
 }
-.nameEntry {
+.hour-select {
 	width:80vw;
 	margin-left:10vw;
 	box-sizing:border-box;
@@ -51,24 +72,7 @@
 	border-radius:30px;
 	transition:background-color 0.5s, color 0.5s, width 0.5s, margin-left 0.5s;
 }
-.passEntry {
-	width:80vw;
-	margin-left:10vw;
-	box-sizing:border-box;
-	border:2px solid white;
-	background-color:rgba(255, 255, 255, 0.228);
-	color:white;
-	font-family:'DM Mono';
-	font-size:30px;
-	text-align:center;
-	outline:none;
-	margin-top:20px;
-	height:60px;
-	border-radius:30px;
-	transition:background-color 0.5s, color 0.5s, width 0.5s, margin-left 0.5s;
-}
-
-#submit {
+#done {
 	background-color:#d56bffff;
 	width:100vw;
 	height:70px;
@@ -82,4 +86,16 @@
 	padding-top:15px;
 	font-weight:700;
 	cursor:pointer;
+}
+
+.selected-button {
+	background-color:white;
+	color:rgb(30,30,30);
+	width:85vw;
+	margin-left:7.5vw;
+}
+
+@keyframes gainHours {
+	from {width:0vw;}
+	to {width:30vw;}
 }
