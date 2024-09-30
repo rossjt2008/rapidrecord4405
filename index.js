@@ -1,13 +1,17 @@
 /*
 The JS. I'm thinking let's LOCALSTORAGE *and* MYSQL the data?
 */
+let previoushours = 0;
+if (localStorage.getItem("totalhours")) {
+    previoushours = Number(localStorage.getItem("totalhours"));
+}
+
 var button1 = 1;
 var button2 = 2;
 var button3 = 3;
 var button4 = 4;
 var button5 = document.getElementById("customhours").value;
 var totalhours = button1+button2+button3+button4+button5;
-var previoushours = 0; //Will take from sheets, json, or other database in final product.
 var newhours = 0
 var fullname = localStorage.getItem("fullname")
 document.getElementById("name").textContent = fullname;
@@ -55,7 +59,7 @@ function toggleHour(h,button) {
 	//and then we update the 'hours' counter thing.
 	document.getElementById("hours").textContent = (hours.reduce((a,b) => a + b)) + " hours"
 	var totalhours = (hours.reduce((a,b) => a + b))
-	localStorage.setItem("totalhours", totalhours)
+	localStorage.setItem("addHours", totalhours)
 	newhours = totalhours + previoushours
 }
 

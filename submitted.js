@@ -1,10 +1,13 @@
 
-var previoushours = 0
-var totalhours = localStorage.getItem("totalhours");
+let previoushours = 0;
+if (localStorage.getItem("totalhours")) {
+    previoushours = Number(localStorage.getItem("totalhours"));
+}
+let totalhours = localStorage.getItem("addHours");
 totalhours = parseInt(totalhours)
 var newhours = previoushours + totalhours;
 localStorage.removeItem(totalhours)
-localStorage.setItem(previoushours, newhours)
+localStorage.setItem("totalhours", newhours)
 newHours(newhours);
 function newHours(newhours) {
 document.getElementById("hours").textContent = newhours + " hours"
