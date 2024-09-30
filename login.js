@@ -3,7 +3,9 @@
 function clickSubmit() {
     //add code here to manage whatever needs to be managed in the JS, saving info, etc
     let firstname =  document.getElementById("firstname").value
+    firstname = firstname[0].toUpperCase() + firstname.substring(1);
     let lastname =  document.getElementById("lastname").value
+    lastname = lastname[0].toUpperCase() + lastname.substring(1);
     let fullname = firstname + " " + lastname
     if (fullname == "Ross Taylor") {
         //and then switch page
