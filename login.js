@@ -13,7 +13,6 @@ function clickSubmit() {
         localStorage.setItem("fullname", fullname)
         self.location = "index.html";  //or whichever file comes next
     } else {
-        alert(fullname)
         alert("You are not currently registered on the team 4405 robotics team. Please try again once you have registered.")
     }
 }
