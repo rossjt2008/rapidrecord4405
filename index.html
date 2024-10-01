@@ -43,7 +43,7 @@
 				<button class="hour-select" onclick="toggleHour(3, this)">3 hours</button>
 				<button class="hour-select" onclick="toggleHour(4, this)">4 hours</button>
 				<button class="hour-select" onclick="toggleHour(5, this)">5 hours</button>
-				<input class="hour-select" type="text" id="customhours" placeholder="[ Custom ]"><br><br>
+				<input class="hour-select" type="text" id="customhours" placeholder="[ Custom ]" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" /><br><br>
 			</div>
 		</div>
 		

@@ -61,14 +61,20 @@ function toggleHour(h,button) {
 	var totalhours = (hours.reduce((a,b) => a + b))
 	localStorage.setItem("addHours", totalhours)
 	newhours = totalhours + previoushours
+	var elem = document.getElementById("progress");
+	progressFloat = parseFloat(newhours)
+	progressPercent = progressFloat / 100.0
+	progressPercent = Math.round(progressPercent)
+	progressPercent = parseInt(progressPercent)
+	elem.style.width = progressPercent + " vw";
+	console.log(progressPercent + " vw")
 }
-
+//customhours.addEventListener("keydown", function (e){
+//	if (e.code === "Enter") {
+//		hours.push("customhours");
+//		button.classList.toggle()
+//	}
+//});
 function clickDone() {
-	//check if previoushours already has a value
-	//if (newhours - totalhours == 0) {
-	//	localStorage.setItem("previoushours", 0)
-	//} else {
-	//	localStorage.setItem("previoushours", previoushours)
-	//}
 	self.location = "submitted.html";  //or whichever file comes next
 }

@@ -17,7 +17,10 @@ document.getElementById("done").addEventListener("click", whenDonePressed);
 
 function whenDonePressed() {
     //add code here to manage whatever needs to be managed in the JS, saving info, etc
-
-    //and then switch page
-    self.location = "login.html";  //or whichever file comes next
+    if (localStorage.getItem("fullname")) {
+                //and then switch page
+        self.location = "index.html";  //or whichever file comes next
+    } else {
+        self.location = "login.html"
+    }
 }
