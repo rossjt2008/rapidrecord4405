@@ -7,7 +7,7 @@ let totalhours = localStorage.getItem("addHours");
 totalhours = parseInt(totalhours)
 var newhours = previoushours + totalhours;
 var elem = document.getElementById("progress");
-var progress = previoushours * 1.25
+var progress = (previoushours + totalhours) * 1.25
 elem.style.width = progress + "vw";
 localStorage.removeItem(totalhours)
 localStorage.setItem("totalhours", newhours)
