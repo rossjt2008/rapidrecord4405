@@ -15,7 +15,9 @@ var totalhours = button1+button2+button3+button4+button5;
 var newhours = 0
 var fullname = localStorage.getItem("fullname")
 document.getElementById("name").textContent = fullname;
-
+var elem = document.getElementById("progress");
+var progress = previoushours * 1.25
+elem.style.width = progress + "vw";
 
 
 
@@ -61,13 +63,12 @@ function toggleHour(h,button) {
 	var totalhours = (hours.reduce((a,b) => a + b))
 	localStorage.setItem("addHours", totalhours)
 	newhours = totalhours + previoushours
-	var elem = document.getElementById("progress");
 	progressFloat = parseFloat(newhours)
-	progressPercent = progressFloat / 100.0
+	progressPercent = progressFloat * 1.25
 	progressPercent = Math.round(progressPercent)
 	progressPercent = parseInt(progressPercent)
-	elem.style.width = progressPercent + " vw";
-	console.log(progressPercent + " vw")
+	elem.style.width = progressPercent + "vw";
+	console.log(progressPercent + "vw")
 }
 //customhours.addEventListener("keydown", function (e){
 //	if (e.code === "Enter") {

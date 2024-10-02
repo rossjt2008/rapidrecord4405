@@ -6,6 +6,9 @@ if (localStorage.getItem("totalhours")) {
 let totalhours = localStorage.getItem("addHours");
 totalhours = parseInt(totalhours)
 var newhours = previoushours + totalhours;
+var elem = document.getElementById("progress");
+var progress = previoushours * 1.25
+elem.style.width = progress + "vw";
 localStorage.removeItem(totalhours)
 localStorage.setItem("totalhours", newhours)
 newHours(newhours);
@@ -14,7 +17,6 @@ document.getElementById("hours").textContent = newhours + " hours"
 }
 // run whenDonePressed() when it is clicked, essentially does the same thing as onclick=“whenDonePressed()” in the HTML
 document.getElementById("done").addEventListener("click", whenDonePressed);
-
 function whenDonePressed() {
     //add code here to manage whatever needs to be managed in the JS, saving info, etc
     if (localStorage.getItem("fullname")) {
