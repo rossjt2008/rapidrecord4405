@@ -6,6 +6,8 @@ if (localStorage.getItem("totalhours")) {
 let totalhours = localStorage.getItem("addHours");
 totalhours = parseInt(totalhours)
 var newhours = previoushours + totalhours;
+totalhours = 0
+localStorage.setItem("addHours", totalhours)
 var elem = document.getElementById("progress");
 var progress = (previoushours + totalhours) * 1.25
 elem.style.width = progress + "vw";
