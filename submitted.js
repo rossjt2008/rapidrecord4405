@@ -1,4 +1,21 @@
 
+if (localStorage.getItem("fullname")) {
+	console.log("fullname is defined.")
+} else {
+	console.log("Not logged in. Going to login screen.")
+    self.location = ("login.html")
+}
+if (localStorage.getItem("fullname") == undefined) {
+	console.log("User invalid, please log in.")
+    self.location = ("login.html")
+} else {
+	console.log("User vaild.")
+}
+if (localStorage.getItem("addHours")) {
+	console.log("Hours accepted.")
+} else {
+	console.log("No hours submitted. Going to login screen.")
+}
 let previoushours = 0;
 if (localStorage.getItem("totalhours")) {
     previoushours = Number(localStorage.getItem("totalhours"));
@@ -27,4 +44,9 @@ function whenDonePressed() {
     } else {
         self.location = "login.html"
     }
+}
+function logout() {
+    localStorage.getItem("fullname")
+    localStorage.removeItem("fullname")
+    self.location = "login.html"
 }

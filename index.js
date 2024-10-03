@@ -1,6 +1,18 @@
 /*
 The JS. I'm thinking let's LOCALSTORAGE *and* MYSQL the data?
 */
+if (localStorage.getItem("fullname")) {
+	console.log("fullname is defined.")
+} else {
+	console.log("Not logged in. Going to login screen.")
+	self.location = "login.html"
+}
+if (localStorage.getItem("fullname") == undefined) {
+	console.log("User invalid, please log in.")
+    self.location = ("login.html")
+} else {
+	console.log("User vaild.")
+}
 let previoushours = 0;
 if (localStorage.getItem("totalhours")) {
     previoushours = Number(localStorage.getItem("totalhours"));
