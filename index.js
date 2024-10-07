@@ -6,7 +6,7 @@ if (localStorage.getItem("fullname")) {
 	console.log("fullname is defined.")
 } else {
 	console.log("Not logged in. Going to login screen.")
-	self.location = "login.html"
+	validpage = 1
 }
 if (localStorage.getItem("fullname") == undefined) {
 	console.log("User invalid, please log in.")
