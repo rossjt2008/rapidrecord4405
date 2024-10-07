@@ -1,48 +1,44 @@
 /*
 The JS. I'm thinking let's LOCALSTORAGE *and* MYSQL the data?
 */
-if (localStorage.getItem("fullname")) {
-	console.log("fullname is defined.")
-} else {
-	console.log("Not logged in. Going to login screen.")
-	self.location = "login.html"
-}
-if (localStorage.getItem("fullname") == undefined) {
-	console.log("User invalid, please log in.")
-    self.location = ("login.html")
-} else {
-	console.log("User vaild.")
-}
+let validpage = 0
 if (localStorage.getItem("teachername")) {
     console.log("teachername is defined.")
 } else {
-    console.log("teachername is not defined.")
+    console.log("Instructed is not logged in, going to the login screen.")
+    validpage = 1
 }
 if (localStorage.getItem("teachername") == undefined) {
     console.log("User is not an instructor.")
+    validpage = 1
 } else {
-    console.log("Instructor logged in. Switching to instructor page.")
-    self.location = "teacherindex.html"
+    console.log("Instructor valid.")
 }
-let previoushours = 0;
-if (localStorage.getItem("totalhours")) {
-    previoushours = Number(localStorage.getItem("totalhours"));
+if (localStorage.getItem("fullname")) {
+	console.log("fullname is defined.")
+} else {
+	console.log("fullname is not defined.")
+}
+if (localStorage.getItem("fullname") == undefined) {
+	console.log("User is not a student.")
+} else {
+    if (localStorage.getItem("teachername") == undefined) {
+        console.log("Student logged in. Going to hours input screen.")
+        validpage = 2
+    } else {
+        console.log("Teacher has accessed a student's hours.")
+    }
+}
+if (validpage == 1) {
+	self.location = "login.html"
+} else if (validpage == 2) {
+	self.location = "index.html"
 }
 
-var button1 = 1;
-var button2 = 2;
-var button3 = 3;
-var button4 = 4;
 var button5 = document.getElementById("customhours").value;
-var totalhours = button1+button2+button3+button4+button5;
-var newhours = 0
-var fullname = localStorage.getItem("fullname")
-document.getElementById("name").textContent = fullname;
-var elem = document.getElementById("progress");
-var progress = previoushours * 1.25
-elem.style.width = progress + "vw";
-
-
+totalhours = button5
+var teachername = localStorage.getItem("teachername")
+document.getElementById("name").textContent = teachername;
 
 ///////////////////////////////////////////////////////////////////////
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -87,11 +83,6 @@ function toggleHour(h,button) {
 	localStorage.setItem("addHours", totalhours)
 	newhours = totalhours + previoushours
 	progressFloat = parseFloat(newhours)
-	progressPercent = progressFloat * 1.25
-	progressPercent = Math.round(progressPercent)
-	progressPercent = parseInt(progressPercent)
-	elem.style.width = progressPercent + "vw";
-	console.log(progressPercent + "vw")
 }
 //customhours.addEventListener("keydown", function (e){
 //	if (e.code === "Enter") {
@@ -99,6 +90,24 @@ function toggleHour(h,button) {
 //		button.classList.toggle()
 //	}
 //});
+function logout() {
+    localStorage.removeItem("teachername")
+    localStorage.removeItem("fullname")
+    self.location = ("login.html")
+}
 function clickDone() {
-	self.location = "submitted.html";  //or whichever file comes next
+    let members = ["Owen Bryant","Ross Taylor",""];
+    let firstname =  document.getElementById("firstname").value
+    firstname = firstname[0].toUpperCase() + firstname.substring(1);
+    let lastname =  document.getElementById("lastname").value
+    lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    let fullname = firstname + " " + lastname
+    if (members.includes(fullname)) {
+        //and then switch page
+        localStorage.setItem("fullname", fullname)
+        localStorage.setItem("lastpage", "teacherindex.html")
+	self.location = "history.html";  //or whichever file comes next
+    } else {
+        alert(fullname + " is not currently registered on the team 4405 robotics team. Make sure you inputted the name correctly and try again.")
+    }
 }
