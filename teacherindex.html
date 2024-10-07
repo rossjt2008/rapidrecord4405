@@ -1,6 +1,6 @@
-<html></html>
+html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="submitted.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
 		<link rel="icon" type="image/x-icon" href="./images/favicon2.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-		<script src="submitted.js" defer></script>
+		<script src="index.js" defer></script>
 	</head>
 	<body>
 		<!-- IMPORTANT NOTICE
@@ -29,17 +29,25 @@
 			<div id="progress"></div>
 		</div>
 		<div id="main">
-			<h3 id="welcome">Your hours have been recorded.</h3>
-			<h1 id="name">Thank you for contributing to The Atoms Family robotics team!</h1>
+			<h3 id="welcome">WELCOME,</h3>
+			<h1 id="name">Unknown</h1>
 			<div id="log-hours-container">
-				<p id="log-text">Total Hours: </p>
+				<p id="log-text">Log Hours: </p>
 				<div id="hours">0 hours</div>
-                <div id="buttons">
-                    <button class="hour-select" onclick="logout()">Logout</button>
-                    <button class="hour-select" onclick="progressDisplay()">Log History</button>
 			</div>
+			<div id="buttons">
+				<!-- Right over here, the toggleHour function takes in the hours (1 - 5) and -->
+				<!-- whatever button element (noted as 'this') called the function.          -->
+				<button class="hour-select" onclick="toggleHour(1, this)">1 hour</button>
+				<button class="hour-select" onclick="toggleHour(2, this)">2 hours</button>
+				<button class="hour-select" onclick="toggleHour(3, this)">3 hours</button>
+				<button class="hour-select" onclick="toggleHour(4, this)">4 hours</button>
+				<button class="hour-select" onclick="toggleHour(5, this)">5 hours</button>
+				<input class="hour-select" type="number" id="customhours" placeholder="[ Custom ]" onchange="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');toggleHour(this.value, this)" /><br><br>
+			</div>
+		</div>
 		
 
-		<div id="done" onclick="clickDone()">Submit Again ></div>
+		<div id="done" onclick="clickDone()">Submit ></div>
 	</body>
 </html>

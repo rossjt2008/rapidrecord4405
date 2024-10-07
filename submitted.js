@@ -1,20 +1,37 @@
-
+let validpage = 0
 if (localStorage.getItem("fullname")) {
 	console.log("fullname is defined.")
 } else {
 	console.log("Not logged in. Going to login screen.")
-    self.location = ("login.html")
+	self.location = "login.html"
 }
 if (localStorage.getItem("fullname") == undefined) {
 	console.log("User invalid, please log in.")
-    self.location = ("login.html")
+    validpage = 1
 } else {
 	console.log("User vaild.")
+}
+if (localStorage.getItem("teachername")) {
+    console.log("teachername is defined.")
+} else {
+    console.log("teachername is not defined.")
+}
+if (localStorage.getItem("teachername") == undefined) {
+    console.log("User is not an instructor.")
+} else {
+    console.log("Instructor logged in. Switching to instructor page.")
+    validpage = 2
+}
+if (validpage = 1) {
+	self.location = "login.html"
+} else if (validpage = 2) {
+	self.location = "teacherindex.html"
 }
 if (localStorage.getItem("addHours")) {
 	console.log("Hours accepted.")
 } else {
-	console.log("No hours submitted. Going to login screen.")
+	console.log("No hours submitted. Going to hours screen.")
+    self.location = "index.html"
 }
 let previoushours = 0;
 if (localStorage.getItem("totalhours")) {
@@ -26,7 +43,7 @@ var newhours = previoushours + totalhours;
 totalhours = 0
 localStorage.setItem("addHours", totalhours)
 var elem = document.getElementById("progress");
-var progress = (previoushours + totalhours) * 1.25
+var progress = (newhours) * 1.25
 elem.style.width = progress + "vw";
 localStorage.removeItem(totalhours)
 localStorage.setItem("totalhours", newhours)
@@ -44,6 +61,10 @@ function whenDonePressed() {
     } else {
         self.location = "login.html"
     }
+}
+function progressDisplay() {
+    localStorage.setItem("lastpage", "submitted.html")
+    self.location = "history.html"
 }
 function logout() {
     localStorage.getItem("fullname")

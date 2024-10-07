@@ -1,7 +1,6 @@
 /*
 The JS. I'm thinking let's LOCALSTORAGE *and* MYSQL the data?
 */
-let validpage = 0
 if (localStorage.getItem("fullname")) {
 	console.log("fullname is defined.")
 } else {
@@ -10,7 +9,7 @@ if (localStorage.getItem("fullname")) {
 }
 if (localStorage.getItem("fullname") == undefined) {
 	console.log("User invalid, please log in.")
-    validpage = 1
+    self.location = ("login.html")
 } else {
 	console.log("User vaild.")
 }
@@ -23,12 +22,7 @@ if (localStorage.getItem("teachername") == undefined) {
     console.log("User is not an instructor.")
 } else {
     console.log("Instructor logged in. Switching to instructor page.")
-    validpage = 2
-}
-if (validpage = 1) {
-	self.location = "login.html"
-} else if (validpage = 2) {
-	self.location = "teacherindex.html"
+    self.location = "teacherindex.html"
 }
 let previoushours = 0;
 if (localStorage.getItem("totalhours")) {
