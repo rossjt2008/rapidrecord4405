@@ -25,9 +25,9 @@ if (localStorage.getItem("teachername") == undefined) {
     console.log("Instructor logged in. Switching to instructor page.")
     validpage = 2
 }
-if (validpage = 1) {
+if (validpage == 1) {
 	self.location = "login.html"
-} else if (validpage = 2) {
+} else if (validpage == 2) {
 	self.location = "teacherindex.html"
 }
 let previoushours = 0;
