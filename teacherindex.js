@@ -35,6 +35,7 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 
+let members = ["Owen Bryant","Ross Taylor",""];
 var button5 = document.getElementById("customhours").value;
 totalhours = button5
 var teachername = localStorage.getItem("teachername")
@@ -77,12 +78,6 @@ function toggleHour(h,button) {
 		button.classList.toggle("selected-button");
 	}
 
-	//and then we update the 'hours' counter thing.
-	document.getElementById("hours").textContent = (hours.reduce((a,b) => a + b)) + " hours"
-	var totalhours = (hours.reduce((a,b) => a + b))
-	localStorage.setItem("addHours", totalhours)
-	newhours = totalhours + previoushours
-	progressFloat = parseFloat(newhours)
 }
 //customhours.addEventListener("keydown", function (e){
 //	if (e.code === "Enter") {
@@ -95,18 +90,97 @@ function logout() {
     localStorage.removeItem("fullname")
     self.location = ("login.html")
 }
-function clickDone() {
-    let members = ["Owen Bryant","Ross Taylor",""];
-    let firstname =  document.getElementById("firstname").value
+function addHours() {
+    try {
+        let firstname = document.getElementById("firstname").value
+        firstname = firstname[0].toUpperCase() + firstname.substring(1);
+        let lastname = document.getElementById("lastname").value
+        lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    } catch (typeError) {
+        alert("One of the required input boxes has not been filled. Please check the input boxes and try again.")
+        return;
+    }
+    let firstname = document.getElementById("firstname").value
     firstname = firstname[0].toUpperCase() + firstname.substring(1);
-    let lastname =  document.getElementById("lastname").value
+    let lastname = document.getElementById("lastname").value
+    lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    let fullname = firstname + " " + lastname
+    if (members.includes(fullname)) {
+        let customhours = document.getElementById("customhours").value
+        customhours = parseInt(customhours)
+        console.log(customhours)
+        if (Number.isNaN(customhours) == true) {
+            customhours = 0
+            alert("The hour input box is blank or has an 'e' in it. Type a valid number into it and try again.")
+            return;
+        } else {
+            console.log("Hour input is ok.")
+        }
+        var previoushours = parseInt(localStorage.getItem("totalhours"))
+        var newhours = previoushours + customhours
+        localStorage.setItem("previoushours", newhours)
+        alert("Successfully added "+ customhours +" hours to "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
+        localStorage.setItem("totalhours", newhours)
+        self.location = "teacherindex.html";  //or whichever file comes next
+    } else {
+        alert(fullname + " is not currently registered on the team 4405 robotics team. Make sure you inputted the name correctly and try again.")
+    }
+}
+function removeHours() {
+    try {
+        let firstname = document.getElementById("firstname").value
+        firstname = firstname[0].toUpperCase() + firstname.substring(1);
+        let lastname = document.getElementById("lastname").value
+        lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    } catch (typeError) {
+        alert("One of the required input boxes has not been filled. Please check the input boxes and try again.")
+        return;
+    }
+    let firstname = document.getElementById("firstname").value
+    firstname = firstname[0].toUpperCase() + firstname.substring(1);
+    let lastname = document.getElementById("lastname").value
+    lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    let fullname = firstname + " " + lastname
+    if (members.includes(fullname)) {
+        let customhours = document.getElementById("customhours").value
+        customhours = parseInt(customhours)
+        if (Number.isNaN(customhours)) {
+            customhours = 0
+            alert("The hour input box is blank or has an 'e' character in it. Type a number into it and try again.")
+            return;
+        } else {
+            console.log("Hour input is ok.")
+        }
+        var previoushours = parseInt(localStorage.getItem("totalhours"))
+        var newhours = previoushours - customhours
+        localStorage.setItem("previoushours", newhours)
+        alert("Successfully removed "+ customhours +" hours from "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
+        localStorage.setItem("totalhours", newhours)
+        self.location = "teacherindex.html";  //or whichever file comes next
+    } else {
+        alert(fullname + " is not currently registered on the team 4405 robotics team. Make sure you inputted the name correctly and try again.")
+    }
+}
+function clickDone() {
+    try {
+        let firstname = document.getElementById("firstname").value
+        firstname = firstname[0].toUpperCase() + firstname.substring(1);
+        let lastname = document.getElementById("lastname").value
+        lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    } catch (typeError) {
+        alert("One of the required input boxes has not been filled. Please check the input boxes and try again.")
+        return;
+    }
+    let firstname = document.getElementById("firstname").value
+    firstname = firstname[0].toUpperCase() + firstname.substring(1);
+    let lastname = document.getElementById("lastname").value
     lastname = lastname[0].toUpperCase() + lastname.substring(1);
     let fullname = firstname + " " + lastname
     if (members.includes(fullname)) {
         //and then switch page
         localStorage.setItem("fullname", fullname)
         localStorage.setItem("lastpage", "teacherindex.html")
-	self.location = "history.html";  //or whichever file comes next
+	    self.location = "history.html";  //or whichever file comes next
     } else {
         alert(fullname + " is not currently registered on the team 4405 robotics team. Make sure you inputted the name correctly and try again.")
     }
