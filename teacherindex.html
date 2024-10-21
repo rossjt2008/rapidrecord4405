@@ -31,7 +31,6 @@
 			<div id="buttons">
 				<!-- Right over here, the toggleHour function takes in the hours (1 - 5) and -->
 				<!-- whatever button element (noted as 'this') called the function.          -->
-                <button class="hour-select" onclick="logout()">Logout</button>
 				<div id="log-hours-container">
 				<p id="log-text">Student Hours Modification</p>
 				</div>
@@ -40,6 +39,7 @@
                 <input class="hour-select-input" type="number" id="customhours" placeholder="Hour Input" onchange="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');toggleHour(this.value, this)" />
 				<button class="hour-select" onclick="addHours()">Add Hours</button>
 				<button class="hour-select" onclick="removeHours()">Remove Hours</button>
+                <button class="hour-select" onclick="logout()" id="LOGOUT">Logout</button>
 			</div>
 		</div>
 		
