@@ -88,16 +88,20 @@ function toggleHour(h,button) {
 	}
 
 	//and then we update the 'hours' counter thing.
-	document.getElementById("hours").textContent = (hours.reduce((a,b) => a + b)) + " hours"
-	var totalhours = (hours.reduce((a,b) => a + b))
-	localStorage.setItem("addHours", totalhours)
-	newhours = totalhours + previoushours
-	progressFloat = parseFloat(newhours)
-	progressPercent = progressFloat * 1.25
-	progressPercent = Math.round(progressPercent)
-	progressPercent = parseInt(progressPercent)
-	elem.style.width = progressPercent + "vw";
-	console.log(progressPercent + "vw")
+	try {
+		document.getElementById("hours").textContent = (hours.reduce((a,b) => a + b)) + " hours"
+		var totalhours = (hours.reduce((a,b) => a + b))
+		localStorage.setItem("addHours", totalhours)
+		newhours = totalhours + previoushours
+		progressFloat = parseFloat(newhours)
+		progressPercent = progressFloat * 1.25
+		progressPercent = Math.round(progressPercent)
+		progressPercent = parseInt(progressPercent)
+		elem.style.width = progressPercent + "vw";
+		console.log(progressPercent + "vw")
+	} catch (typeError) {
+		alert("You cannot submit an empty amount of custom hours. Type a value in and try again.")
+	}
 }
 //customhours.addEventListener("keydown", function (e){
 //	if (e.code === "Enter") {
@@ -106,5 +110,9 @@ function toggleHour(h,button) {
 //	}
 //});
 function clickDone() {
-	self.location = "submitted.html";  //or whichever file comes next
+	if (newhours <= 0) {
+		alert("You have not inputed an hour amount yet. Please select an hour amount by pushing the buttons or type a custom amount and try again.")
+	} else {
+		self.location = "submitted.html";  //or whichever file comes next
+	}
 }

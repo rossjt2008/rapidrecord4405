@@ -27,8 +27,20 @@ function clickSubmit() {
     let members = ["Owen Bryant","Ross Taylor",""];
     let instructors = ["Jessica Wash", "Phil Tran", ""]
     let firstname =  document.getElementById("firstname").value
+    if (firstname == "")  {
+        alert("One of the input boxes is blank. Make sure you have typed your first and last name and try again.")
+        return
+    } else {
+        console.log("firstname is defined")
+    }
     firstname = firstname[0].toUpperCase() + firstname.substring(1);
     let lastname =  document.getElementById("lastname").value
+    if (lastname == "")  {
+        alert("One of the input boxes is blank. Make sure you have typed your first and last name and try again.")
+        return
+    } else {
+        console.log("lastname is defined")
+    }
     lastname = lastname[0].toUpperCase() + lastname.substring(1);
     let fullname = firstname + " " + lastname
     if (members.includes(fullname)) {
@@ -39,6 +51,6 @@ function clickSubmit() {
         localStorage.setItem("teachername", fullname)
         self.location = "teacherindex.html";  //or whichever file comes next
     } else {
-        alert("Sorry, " + fullname + ", you are not currently registered on the team 4405 robotics team. Please try again once you have registered.")
+        alert("Sorry, " + fullname + ", you are not currently registered on the 4405 robotics team. Please try again once you have registered.")
     }
 }
