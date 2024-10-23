@@ -123,7 +123,7 @@ function addHours() {
         localStorage.setItem("totalhours", newhours)
         self.location = "teacherindex.html";  //or whichever file comes next
     } else {
-        alert(fullname + " is not currently registered on the team 4405 robotics team. Make sure you inputted the name correctly and try again.")
+        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
     }
 }
 function removeHours() {
@@ -158,7 +158,7 @@ function removeHours() {
         localStorage.setItem("totalhours", newhours)
         self.location = "teacherindex.html";  //or whichever file comes next
     } else {
-        alert(fullname + " is not currently registered on the team 4405 robotics team. Make sure you inputted the name correctly and try again.")
+        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
     }
 }
 function clickDone() {
@@ -182,6 +182,6 @@ function clickDone() {
         localStorage.setItem("lastpage", "teacherindex.html")
 	    self.location = "history.html";  //or whichever file comes next
     } else {
-        alert(fullname + " is not currently registered on the team 4405 robotics team. Make sure you inputted the name correctly and try again.")
+        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
     }
 }
