@@ -30,6 +30,14 @@ console.log(progressPercent + "vw")
 localStorage.removeItem(totalhours)
 localStorage.setItem("totalhours", newhours)
 newHours(newhours);
+
+getTotalHours(localStorage.getItem("fullname"),(th) => {
+	localStorage.setItem("totalhours",th);
+	previousHours = th;
+	elem.style.width = (th * 1.25) + "vw";
+	document.getElementById("hours").textContent = th + " hours";
+})
+
 function newHours(newhours) {
 document.getElementById("hours").textContent = newhours + " hours"
 }
@@ -37,3 +45,18 @@ function clickBack() {
     lastpage = localStorage.getItem("lastpage")
     self.location = lastpage
 }
+
+
+fetch(`getData.php?name=${fullname}&num=` + Math.random())
+	.then(response => response.text())
+	.then((txt) => {
+		if (txt != "") {
+			let data = JSON.parse(txt);
+			data.forEach((val) => {
+				let new_data = document.createElement('h1');
+				new_data.innerHTML = "Hours: " + val.hours + "<br><span class='history-date'>" + val.date + "</span>";
+				new_data.className = "history-container";
+				document.getElementById("loghistory").appendChild(new_data);
+			})
+		}
+	})

@@ -1,6 +1,9 @@
 /*
 The JS. I'm thinking let's LOCALSTORAGE *and* MYSQL the data?
 */
+if (localStorage.getItem("totalhours") == "NaN") {
+	localStorage.setItem("totalhours",0)
+}
 let validpage = 0
 if (localStorage.getItem("fullname")) {
 	console.log("fullname is defined.")
@@ -50,6 +53,7 @@ elem.style.width = progress + "vw";
 
 
 
+
 ///////////////////////////////////////////////////////////////////////
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -57,6 +61,27 @@ elem.style.width = progress + "vw";
 //Right now, it's empty because no buttons have been pressed, so therefore no hours have been added.
 
 let hours = [0]
+
+getTotalHours(localStorage.getItem("fullname"),(th) => {
+	localStorage.setItem("totalhours",th);
+	previoushours = th;
+	console.log("MESSAGE FROM LOCALSTORAGE: " + th)
+	try {
+		console.log((hours.reduce((a,b) => a + b)))
+		document.getElementById("hours").textContent = (hours.reduce((a,b) => a + b)) + " hours"
+		var totalhours = (hours.reduce((a,b) => a + b))
+		localStorage.setItem("addHours", totalhours)
+		newhours = totalhours + previoushours
+		progressFloat = parseFloat(newhours)
+		progressPercent = progressFloat * 1.25
+		progressPercent = Math.round(progressPercent)
+		progressPercent = parseInt(progressPercent)
+		elem.style.width = progressPercent + "vw";
+		console.log(progressPercent + "vw")
+	} catch (typeError) {
+		alert("You cannot submit an empty amount of custom hours. Type a value in and try again.")
+	}
+})
 
 //Once some buttons are pressed, 'hours' might look a little more like:
 /*
@@ -89,6 +114,7 @@ function toggleHour(h,button) {
 
 	//and then we update the 'hours' counter thing.
 	try {
+		console.log((hours.reduce((a,b) => a + b)))
 		document.getElementById("hours").textContent = (hours.reduce((a,b) => a + b)) + " hours"
 		var totalhours = (hours.reduce((a,b) => a + b))
 		localStorage.setItem("addHours", totalhours)
@@ -113,6 +139,6 @@ function clickDone() {
 	if (newhours <= 0) {
 		alert("You have not inputed an hour amount yet. Please select an hour amount by pushing the buttons or type a custom amount and try again.")
 	} else {
-		self.location = "submitted.html";  //or whichever file comes next
+		self.location = "submitted.html?sub=true";  //or whichever file comes next
 	}
 }

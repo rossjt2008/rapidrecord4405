@@ -122,3 +122,23 @@
 	width:85vw;
 	margin-left:7.5vw;
 }
+
+.history-container {
+	width:80vw;
+	margin-left:10vw;
+	box-sizing:border-box;
+	border:3px solid white;
+	background-color:rgba(255, 255, 255, 0.288);
+	text-align:center;
+	color:white;
+	height:fit-content;
+	padding:10px;
+	font-family:'Kode Mono';
+	border-radius:20px;
+	font-size:20px;
+}
+
+.history-date {
+	color:rgb(165, 165, 165);
+	font-size:15px;
+}

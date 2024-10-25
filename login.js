@@ -24,8 +24,8 @@ if (localStorage.getItem("teachername") == undefined) {
 // run whenDonePressed() when it is clicked, essentially does the same thing as onclick=“whenDonePressed()” in the HTML
 function clickSubmit() {
     //add code here to manage whatever needs to be managed in the JS, saving info, etc
-    let members = ["Owen Bryant","Ross Taylor",""];
-    let instructors = ["Jessica Wash", "Phil Tran", ""]
+    let members = ["Owen Bryant","Ross Taylor","John Doe","Jane Doe"];
+    let instructors = ["Jessica Wash", "Phil Tran", "Professor Admin"]
     let firstname =  document.getElementById("firstname").value
     if (firstname == "")  {
         alert("One of the input boxes is blank. Make sure you have typed your first and last name and try again.")

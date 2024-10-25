@@ -37,7 +37,9 @@ let previoushours = 0;
 if (localStorage.getItem("totalhours")) {
     previoushours = Number(localStorage.getItem("totalhours"));
 }
+let fullname = localStorage.getItem("fullname")
 let totalhours = localStorage.getItem("addHours");
+const ADD_HOURS_TO_DB = parseInt(localStorage.getItem("addHours"));//yes, I know it's a repeat, just for my sake :)
 totalhours = parseInt(totalhours)
 var newhours = previoushours + totalhours;
 totalhours = 0
@@ -51,6 +53,21 @@ newHours(newhours);
 function newHours(newhours) {
 document.getElementById("hours").textContent = newhours + " hours"
 }
+
+const URL_PARAMS = new URLSearchParams(window.location.search);
+if (URL_PARAMS.has("sub")) {
+	document.querySelector("#name").textContent = "Thank you for contributing to The Atoms Family robotics team!"
+    document.querySelector("#welcome").textContent = "Your hours have been recorded."
+    document.querySelector("#done").textContent = "Submit Again >"
+} else {
+    getTotalHours(localStorage.getItem("fullname"),(th) => {
+        localStorage.setItem("totalhours",th);
+        previousHours = th;
+        elem.style.width = (th * 1.25) + "vw";
+        document.getElementById("hours").textContent = th + " hours";
+    })
+}
+
 // run whenDonePressed() when it is clicked, essentially does the same thing as onclick=“whenDonePressed()” in the HTML
 document.getElementById("done").addEventListener("click", whenDonePressed);
 function whenDonePressed() {
@@ -70,4 +87,24 @@ function logout() {
     localStorage.getItem("fullname")
     localStorage.removeItem("fullname")
     self.location = "login.html"
+}
+
+if (ADD_HOURS_TO_DB != 0) {
+    fetch(`getData.php?name=${fullname}&num=` + Math.random())
+        .then(response => response.text())
+        .then((txt) => {
+            let data = []
+            if (txt != "") {
+                data = JSON.parse(txt);
+            }
+            data.unshift({date: new Date().toLocaleDateString(), hours: ADD_HOURS_TO_DB});
+            data = JSON.stringify(data);
+            fetch(`addData.php?name=${fullname}&data=${data}&num=` + Math.random())
+                .then(response => response.text())
+                .then((txt) => {
+                console.log(txt);
+                    //
+                })
+            
+        })
 }

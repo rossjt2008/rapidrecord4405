@@ -35,7 +35,7 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 
-let members = ["Owen Bryant","Ross Taylor",""];
+let members = ["Owen Bryant","Ross Taylor","John Doe","Jane Doe"];
 var button5 = document.getElementById("customhours").value;
 totalhours = button5
 var teachername = localStorage.getItem("teachername")
@@ -116,12 +116,13 @@ function addHours() {
         } else {
             console.log("Hour input is ok.")
         }
+        changeHoursBy(customhours);
         var previoushours = parseInt(localStorage.getItem("totalhours"))
         var newhours = previoushours + customhours
         localStorage.setItem("previoushours", newhours)
         alert("Successfully added "+ customhours +" hours to "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
         localStorage.setItem("totalhours", newhours)
-        self.location = "teacherindex.html";  //or whichever file comes next
+        //self.location = "teacherindex.html";  //or whichever file comes next
     } else {
         alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
     }
@@ -151,12 +152,13 @@ function removeHours() {
         } else {
             console.log("Hour input is ok.")
         }
+        changeHoursBy(-customhours);
         var previoushours = parseInt(localStorage.getItem("totalhours"))
         var newhours = previoushours - customhours
         localStorage.setItem("previoushours", newhours)
         alert("Successfully removed "+ customhours +" hours from "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
         localStorage.setItem("totalhours", newhours)
-        self.location = "teacherindex.html";  //or whichever file comes next
+        //self.location = "teacherindex.html";  //or whichever file comes next
     } else {
         alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
     }
@@ -183,5 +185,32 @@ function clickDone() {
 	    self.location = "history.html";  //or whichever file comes next
     } else {
         alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
+    }
+}
+function changeHoursBy(hrs) {
+    let firstname = document.getElementById("firstname").value
+    firstname = firstname[0].toUpperCase() + firstname.substring(1);
+    let lastname = document.getElementById("lastname").value
+    lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    let fullname = firstname + " " + lastname
+    //prompt("HRS: " + hrs + " // NAME: " + fullname)
+    if (hrs != 0) {
+        fetch(`getData.php?name=${fullname}&num=` + Math.random())
+            .then(response => response.text())
+            .then((txt) => {
+                let data = []
+                if (txt != "") {
+                    data = JSON.parse(txt);
+                }
+                data.unshift({date: new Date().toLocaleDateString(), hours: hrs});
+                data = JSON.stringify(data);
+                fetch(`addData.php?name=${fullname}&data=${data}&num=` + Math.random())
+                    .then(response => response.text())
+                    .then((txt) => {
+                    console.log(txt);
+                        //
+                    })
+                
+            })
     }
 }
