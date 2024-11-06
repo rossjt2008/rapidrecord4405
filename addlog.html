@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="teacherindex.css">
+		<link rel="stylesheet" type="text/css" href="addlog.css">
 		<link rel="icon" type="image/x-icon" href="./images/favicon2.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
 		<script src="alerts.js" defer></script>
 		<!-- END 'ALERTS' PACKAGE -->
 		
-		<script src="teacherindex.js" defer></script>
+		<script src="addlog.js" defer></script>
 	</head>
 	<body>
 		<!-- IMPORTANT NOTICE
@@ -32,23 +32,20 @@
 			<h1 id="title">RapidRecord</h1>
 		</div>
 		<div id="main">
-			<h3 id="welcome" onclick="self.location='teacheroptions.html'">OPTIONS & TOOLS</h3>
-			<h1 id="name">Unknown</h1>
+			<h3 id="welcome">Options & Tools</h3>
+			<h1 id="name">Advanced Log</h1>
 			<div id="buttons">
 				<!-- Right over here, the toggleHour function takes in the hours (1 - 5) and -->
 				<!-- whatever button element (noted as 'this') called the function.          -->
-				<div id="log-hours-container">
-				<p id="log-text">Student Hours Modification</p>
-				</div>
                 <input class="hour-select-input" type="text" id="firstname" placeholder="First Name">
                 <input class="hour-select-input" type="text" id="lastname" placeholder="Last Name">
                 <input class="hour-select-input" type="number" id="customhours" placeholder="Hour Input" onchange="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');toggleHour(this.value, this)" />
-				<button class="hour-select" onclick="addHours()">Add Hours</button>
-				<button class="hour-select" onclick="removeHours()">Remove Hours</button>
+				<input class="hour-select-input" type="text" id="date" placeholder="Date (mm/dd/yy)">
+				<button class="hour-select" onclick="removeHours()">Add Log</button>
 			</div>
 		</div>
 		
 
-		<div id="done" onclick="clickDone()">See History ></div>
+		<div id="done" onclick="clickDone()">Back ></div>
 	</body>
 </html>
