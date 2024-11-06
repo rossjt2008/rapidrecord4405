@@ -32,22 +32,24 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 
-let password = "PassTest"
-let passinput = null;
-let idnumber = "04405"
-let idinput = null;
-
-function clickSubmit() {
-    //add code here to manage whatever needs to be managed in the JS, saving info, etc
-    passinput = document.getElementById("password").value;
-    idinput = document.getElementById("idnumber").value;
-    if (passinput == password && idinput == idnumber) {
-        localStorage.setItem("SystemUser", idinput)
-        self.location = "systemtools.html"
-    } else {
-        alert("The password is incorrect, an invalid id has been inputted, or one box was left blank. Please check the input boxes and try again.")
-    }
+function logout() {
+    localStorage.removeItem("teachername")
+    localStorage.removeItem("fullname")
+    self.location = ("login.html")
 }
-function clickBack() {
-    self.location = "teacheroptions.html"
+
+function adduser() {
+    self.location = "adduser.html"
+}
+
+function addlog() {
+    self.location = "addlog.html"
+}
+
+function systemtools () {
+    self.location = "systemaccess.html"
+}
+
+function clickDone() {
+	    self.location = "teacherindex.html";  //or whichever file comes next
 }

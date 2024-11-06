@@ -1,7 +1,7 @@
 <html></html>
 	<head>
 		<script src="getTotalHours.js" defer></script>
-		<link rel="stylesheet" type="text/css" href="teacheroptions.css">
+		<link rel="stylesheet" type="text/css" href="systemtools.css">
 		<link rel="icon" type="image/x-icon" href="./images/favicon2.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,7 +9,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-		<script src="teacheroptions.js?num=8" defer></script>
+		<script src="systemtools.js?num=8" defer></script>
 		<!-- 'ALERTS' PACKAGE -->
 		<link rel="stylesheet" type="text/css" href="alerts.css">
 		<script src="alerts.js" defer></script>
@@ -21,14 +21,17 @@
 		</div>
 		<div id="main">
 			<h3 id="welcome">Options & Tools</h3>
-			<h1 id="name">What's up?</h1>
+			<h1 id="name">System Tools</h1>
+            <div id="log-hours-container">
+				<p id="log-text">Using tools as ID: ????? </p>
+			</div>
                 <div id="buttons">
-                    <button class="hour-select" onclick="logout()" id="LOGOUT">Logout</button>
-					<button class="hour-select" onclick="history()" id="history">History</button>
-                    <button class="hour-select" onclick="adduser()">Add User</button>
-                    <button class="hour-select" onclick="addlog()">Advanced Log</button>
-					<button class="hour-select" onclick="saverecord()" id="saverecord">Save Database</button>
-                    <button class="hour-select" onclick="systemtools()">System Tools</button>
+                    <button class="hour-select" onclick="removelog()" id="LOGOUT">Erase Log</button>
+					<button class="hour-select" onclick="removeuser()" id="history">Erase User</button>
+                    <button class="hour-select" onclick="addinstructor()">Add Instructor</button>
+                    <button class="hour-select" onclick="removeinstructor()">Erase Instructor</button>
+					<button class="hour-select" onclick="clearhours()" id="saverecord">Clear Hours</button>
+                    <button class="hour-select" onclick="cleardatabase()">Clear Database</button>
 			</div>
 		
 
