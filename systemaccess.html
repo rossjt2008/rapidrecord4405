@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="systemaccess.css">
+		<link rel="icon" type="image/x-icon" href="./images/favicon2.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+		<script src="systemaccess.js?num=2" defer></script>
+		<!-- 'ALERTS' PACKAGE -->
+		<link rel="stylesheet" type="text/css" href="alerts.css">
+		<script src="alerts.js" defer></script>
+		<!-- END 'ALERTS' PACKAGE -->
+	</head>
+	<body>
+		<div id="top-title">
+			<h1 id="title">RapidRecord</h1>
+		</div>
+		<div id="main">
+            <h3 id="welcome" onclick="self.location='submitted.html'">Options & Tools</h3>
+			<h1 id="name">System Tools</h1>
+			<div id="log-hours-container">
+				<p id="log-text">In order to access these tools, please enter the system password and an ID number.</p>
+			</div>
+			<div id="buttons">
+				<input class="nameentry" type="text" id="password" placeholder="Password"><br><br>
+                <input class="nameentry" type="text" id="idnumber" placeholder="ID Number"><br><br>
+                <button class="hour-select" onclick="clickSubmit()">Submit</button>
+			</div>
+		</div>
+		
+
+		<div id="done" onclick="clickBack()">Back ></div>
+	</body>
+</html>
