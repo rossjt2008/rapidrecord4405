@@ -23,15 +23,15 @@
 			<h3 id="welcome">Options & Tools</h3>
 			<h1 id="name">System Tools</h1>
             <div id="log-hours-container">
-				<p id="log-text">Using tools as ID: ????? </p>
+				<p id="log-text">Using tools as ID: ?????</p>
 			</div>
                 <div id="buttons">
                     <button class="hour-select" onclick="removelog()" id="LOGOUT">Erase Log</button>
 					<button class="hour-select" onclick="removeuser()" id="history">Erase User</button>
                     <button class="hour-select" onclick="addinstructor()">Add Instructor</button>
                     <button class="hour-select" onclick="removeinstructor()">Erase Instructor</button>
-					<button class="hour-select" onclick="clearhours()" id="saverecord">Clear Hours</button>
-                    <button class="hour-select" onclick="cleardatabase()">Clear Database</button>
+					<button class="hour-select dangerous" onclick="clearhours()">Clear Hours</button>
+                    <button class="hour-select dangerous" onclick="cleardatabase()" id="database">Clear Database</button>
 			</div>
 		
 

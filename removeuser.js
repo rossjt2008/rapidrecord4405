@@ -32,39 +32,16 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 
-let systemuser = localStorage.getItem("SystemUser")
-document.getElementById("log-text").textContent = "Using tools as ID: " + systemuser
-
 function logout() {
     localStorage.removeItem("teachername")
     localStorage.removeItem("fullname")
     self.location = ("login.html")
 }
 
-function removeuser() {
+function removethisuser() {
     self.location = "removeuser.html"
 }
 
-function removelog() {
-    self.location = "removelogin.html"
-}
-
-function addinstructor () {
-    self.location = "addinstructor.html"
-}
-
-function removeinstructor() {
-    self.location = "removeinstructor.html"
-}
-
-function clearhours() {
-    self.location = "clearhours.html"
-}
-
-function cleardatabase () {
-    self.location = "cleardatabase.html"
-}
-
 function clickDone() {
-	    self.location = "teacheroptions.html";  //or whichever file comes next
+	    self.location = "systemtools.html";  //or whichever file comes next
 }
