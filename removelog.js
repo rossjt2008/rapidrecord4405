@@ -32,23 +32,10 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 var newhours = 0
-var fullname = localStorage.getItem("fullname")
+var fullname = localStorage.getItem("logname")
 document.getElementById("name").textContent = fullname;
-var elem = document.getElementById("progress");
-var progress = totalhours * 1.25
-elem.style.width = progress + "vw";
-newhours = totalhours
-progressFloat = parseFloat(newhours)
-progressPercent = progressFloat * 1.25
-progressPercent = Math.round(progressPercent)
-progressPercent = parseInt(progressPercent)
-elem.style.width = progressPercent + "vw";
-console.log(progressPercent + "vw")
-localStorage.removeItem(totalhours)
-localStorage.setItem("totalhours", newhours)
-newHours(newhours);
 
-getTotalHours(localStorage.getItem("fullname"),(th) => {
+getTotalHours(localStorage.getItem("logname"),(th) => {
 	localStorage.setItem("totalhours",th);
 	previousHours = th;
 	elem.style.width = (th * 1.25) + "vw";
@@ -61,7 +48,6 @@ document.getElementById("hours").textContent = newhours + " hours"
 function clickBack() {
     self.location = "systemtools.html"
 }
-
 
 fetch(`getData.php?name=${fullname}&num=` + Math.random())
 	.then(response => response.text())

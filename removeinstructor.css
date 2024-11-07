@@ -72,22 +72,6 @@
 	color:white;
 	font-weight:700;
 }
-.nameentry {
-	width:80vw;
-	margin-left:10vw;
-	box-sizing:border-box;
-	border:2px solid white;
-	background-color:rgba(255, 255, 255, 0.228);
-	color:white;
-	font-family:'DM Mono';
-	font-size:30px;
-	text-align:center;
-	outline:none;
-	margin-top:20px;
-	height:60px;
-	border-radius:30px;
-	transition:background-color 0.5s, color 0.5s, width 0.5s, margin-left 0.5s;
-}
 #info {
     width:fit-content;
 	color:rgb(200,200,200);
