@@ -1,9 +1,6 @@
 <?php
 $name = $_GET["name"];
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "rapidrecord";
+require_once 'access.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

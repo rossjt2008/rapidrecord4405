@@ -3,10 +3,7 @@ $name = $_GET["name"];
 //$data = $_GET["data"];
 $numberidthing = $_GET["access_key"];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "rapidrecord";
+require_once 'access.php';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
