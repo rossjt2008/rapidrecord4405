@@ -105,7 +105,8 @@ function addHours() {
     let lastname = document.getElementById("lastname").value
     lastname = lastname[0].toUpperCase() + lastname.substring(1);
     let fullname = firstname + " " + lastname
-    if (members.includes(fullname)) {
+
+    determine_user(fullname,() => {
         let customhours = document.getElementById("customhours").value
         customhours = parseInt(customhours)
         console.log(customhours)
@@ -122,10 +123,9 @@ function addHours() {
         localStorage.setItem("previoushours", newhours)
         alert("Successfully added "+ customhours +" hours to "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
         localStorage.setItem("totalhours", newhours)
-        //self.location = "teacherindex.html";  //or whichever file comes next
-    } else {
-        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
-    }
+    },() => {
+        alert("UTTER AND COMPLETE FAILURE!!!");
+    })
 }
 function removeHours() {
     try {
@@ -142,7 +142,7 @@ function removeHours() {
     let lastname = document.getElementById("lastname").value
     lastname = lastname[0].toUpperCase() + lastname.substring(1);
     let fullname = firstname + " " + lastname
-    if (members.includes(fullname)) {
+    determine_user(fullname,() => {
         let customhours = document.getElementById("customhours").value
         customhours = parseInt(customhours)
         if (Number.isNaN(customhours)) {
@@ -158,10 +158,9 @@ function removeHours() {
         localStorage.setItem("previoushours", newhours)
         alert("Successfully removed "+ customhours +" hours from "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
         localStorage.setItem("totalhours", newhours)
-        //self.location = "teacherindex.html";  //or whichever file comes next
-    } else {
-        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
-    }
+    },() => {
+        alert("UTTER AND COMPLETE FAILURE!!!");
+    })
 }
 function clickDone() {
     try {
@@ -178,14 +177,13 @@ function clickDone() {
     let lastname = document.getElementById("lastname").value
     lastname = lastname[0].toUpperCase() + lastname.substring(1);
     let fullname = firstname + " " + lastname
-    if (members.includes(fullname)) {
-        //and then switch page
+    determine_user(fullname,() => {
         localStorage.setItem("fullname", fullname)
         localStorage.setItem("lastpage", "teacherindex.html")
 	    self.location = "history.html";  //or whichever file comes next
-    } else {
-        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
-    }
+    },() => {
+        alert("UTTER AND COMPLETE FAILURE!!!");
+    })
 }
 function changeHoursBy(hrs) {
     let firstname = document.getElementById("firstname").value
@@ -213,4 +211,15 @@ function changeHoursBy(hrs) {
                 
             })
     }
+}
+function determine_user(fullname,success,failure) {
+    fetch(`does_da_user_exist.php?name=${fullname}&num=` + Math.random())
+        .then(response => response.text())
+        .then((txt) => {
+            if (txt != "FAILURE") {
+                success();
+            } else {
+                failure();
+            }
+        })
 }

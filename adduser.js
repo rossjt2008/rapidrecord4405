@@ -39,7 +39,18 @@ function logout() {
 }
 
 function addthisuser() {
-    self.location = "adduser.html"
+    let firstname =  document.getElementById("firstname").value
+    let lastname =  document.getElementById("lastname").value
+    lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    firstname = firstname[0].toUpperCase() + firstname.substring(1);
+    let fullname = firstname + " " + lastname;
+    fetch(`addpeep.php?name=${fullname}&access_key=4&num=` + Math.random())
+        .then(response => response.text())
+        .then((txt) => {
+            self.location = self.location;
+            //
+        })
+    //self.location = self.location;
 }
 
 function clickDone() {
