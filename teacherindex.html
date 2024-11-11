@@ -15,7 +15,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
 
 		<!-- 'ALERTS' PACKAGE -->
-		<link rel="stylesheet" type="text/css" href="alerts.css">
+		<link rel="stylesheet" type="text/css" href="alerts.css?num=3">
 		<script src="alerts.js" defer></script>
 		<!-- END 'ALERTS' PACKAGE -->
 		
@@ -45,9 +45,9 @@
 				<div id="log-hours-container">
 				<p id="log-text">Student Hours Modification</p>
 				</div>
-                <input class="hour-select-input" type="text" id="firstname" placeholder="First Name">
-                <input class="hour-select-input" type="text" id="lastname" placeholder="Last Name">
-                <input class="hour-select-input" type="number" id="customhours" placeholder="Hour Input" onchange="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');toggleHour(this.value, this)" />
+                <input class="hour-select" type="text" id="firstname" placeholder="First Name">
+                <input class="hour-select" type="text" id="lastname" placeholder="Last Name">
+                <input class="hour-select" type="number" id="customhours" placeholder="Hour Input" onchange="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');toggleHour(this.value, this)" />
 				<button class="hour-select" onclick="addHours()">Add Hours</button>
 				<button class="hour-select" onclick="removeHours()">Remove Hours</button>
 			</div>

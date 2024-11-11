@@ -56,7 +56,7 @@ document.getElementById("hours").textContent = newhours + " hours"
 
 const URL_PARAMS = new URLSearchParams(window.location.search);
 if (URL_PARAMS.has("sub")) {
-	document.querySelector("#name").textContent = "Thank you for contributing to The Atoms Family robotics team!"
+	document.querySelector("#name").textContent = "You're all done!"
     document.querySelector("#welcome").textContent = "Your hours have been recorded."
     document.querySelector("#done").textContent = "Submit Again >"
 } else {
