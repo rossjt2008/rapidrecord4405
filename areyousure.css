@@ -51,7 +51,6 @@
 	font-family:'Kode Mono';
 	text-align:center;
 	margin-bottom:5px;
-	background-color:rgb(29, 29, 29);
 	border-radius:10px;
 	height:fit-content;
 	padding:5px;
@@ -102,9 +101,9 @@
 	width:80vw;
 	margin-left:10vw;
 	box-sizing:border-box;
-	border:2px solid white;
+	border:2px solid red;
 	background-color:rgba(255, 255, 255, 0.228);
-	color:white;
+	color:red;
 	font-family:'DM Mono';
 	font-size:30px;
 	text-align:center;
