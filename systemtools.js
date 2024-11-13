@@ -58,11 +58,13 @@ function removeinstructor() {
 }
 
 function clearhours() {
-    self.location = "clearhours.html"
+    localStorage.setItem("buttonclicked", "hours")
+    self.location = "areyousure.html"
 }
 
 function cleardatabase () {
-    self.location = "cleardatabase.html"
+    localStorage.setItem("buttonclicked", "database")
+    self.location = "areyousure.html"
 }
 
 function clickDone() {

@@ -100,6 +100,10 @@
 	border-radius:30px;
 	transition:background-color 0.5s, color 0.5s, width 0.5s, margin-left 0.5s;
 }
+#systemtool {
+	border-color: gold;
+	color: gold;
+}
 .hour-select-input {
 	width:80vw;
 	margin-left:10vw;

@@ -69,7 +69,13 @@ function determine_user(fullname) {
                     self.location = "index.html";  //or whichever file comes next
                 }
             } else {
-                alert("NUH-UH, YOU AIN'T ALLOW IN THESE PARTS, COWBOY")
+                alert("Sorry " + fullname + ", you are not currently on the 4405 robotics team. Please try again once you have registered.")
+                //alert("NUH-UH, YOU AIN'T ALLOW IN THESE PARTS, COWBOY")
             }
         })
+}
+
+function aboutwebsites() {
+    localStorage.setItem("lastpage", "login.html")
+    self.location = "about.html"
 }

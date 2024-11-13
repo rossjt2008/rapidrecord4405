@@ -42,6 +42,11 @@ function adduser() {
     self.location = "adduser.html"
 }
 
+function aboutwebsites() {
+    localStorage.setItem("lastpage", "teacheroptions.html")
+    self.location = "about.html"
+}
+
 function addlog() {
     self.location = "addlog.html"
 }

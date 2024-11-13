@@ -32,19 +32,47 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 
-let systemuser = localStorage.getItem("SystemUser")
-document.getElementById("log-text").textContent = "Using tools as ID: " + systemuser
+let buttonclicked = localStorage.getItem("buttonclicked")
+if (buttonclicked == "hours") {
+    usehours()
+} else if (buttonclicked == "database") {
+     usedatabase()
+}
+
+
+function usehours() {
+    document.getElementById("name").textContent = "Clear Hours"
+    document.getElementById("log-text").textContent = "Are you sure? This will wipe all users' hours and log history (including instructor log history) and store them in a recoverable JSON file."
+    document.getElementById("removei").textContent = "Clear Hours"
+}
+
+function usedatabase() {
+    document.getElementById("name").textContent = "Clear Database"
+    document.getElementById("log-text").textContent = "Are you sure? This will wipe the entire database and store it in a recoverable JSON file."
+    document.getElementById("removei").textContent = "Clear Database"
+}
+
+function remove() {
+    if (buttonclicked == "hours") {
+        clearhours()
+    } else if (buttonclicked == "database") {
+        cleardatabase()
+    } else {
+        self.location = "systemtools.html"
+    }
+}
 
 function clearhours() {
-    localStorage.removeItem(totalhours)
-    self.location = "areyousure.html"
+    localStorage.clear()
+    alert("You have cleared all logged hours and history. A JSON file will be created and downloaded to your computer for recovery and archive purposes.")
 }
 
 function cleardatabase () {
     localStorage.clear()
-    self.location = "areyousure.html"
+    alert("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.")
+
 }
 
-function clickDone() {
+function clickBack() {
 	    self.location = "systemtools.html";  //or whichever file comes next
 }
