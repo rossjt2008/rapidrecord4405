@@ -88,7 +88,10 @@ function logout() {
     localStorage.removeItem("fullname")
     self.location = "login.html"
 }
-
+function aboutwebsites() {
+    localStorage.setItem("lastpage", "submitted.html")
+    self.location = "about.html"
+}
 if (ADD_HOURS_TO_DB != 0) {
     fetch(`getData.php?name=${fullname}&num=` + Math.random())
         .then(response => response.text())
