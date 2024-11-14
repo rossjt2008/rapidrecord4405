@@ -32,31 +32,10 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 
-function logout() {
-    localStorage.removeItem("teachername")
-    localStorage.removeItem("fullname")
-    self.location = ("login.html")
+function storedatabase() {
+    alert("You have stored all logged hours and history to your computer. This file can be used for recovery and archive purposes.")
 }
 
-function adduser() {
-    self.location = "adduser.html"
-}
-
-function aboutwebsites() {
-    localStorage.setItem("lastpage", "teacheroptions.html")
-    self.location = "about.html"
-}
-
-function addlog() {
-    self.location = "addlog.html"
-}
-
-function systemtools () {
-    self.location = "systemaccess.html"
-}
-function saverecord() {
-    self.location = "savedatabase.html"
-}
-function clickDone() {
-	    self.location = "teacherindex.html";  //or whichever file comes next
+function clickBack() {
+	    self.location = "teacheroptions.html";  //or whichever file comes next
 }

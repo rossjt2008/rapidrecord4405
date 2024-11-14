@@ -4,8 +4,9 @@
 		<meta name="apple-mobile-web-app-title" content="Perceptive2.0">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<link rel="apple-touch-icon" href="images\favicon2.png">
-		
-		<link rel="stylesheet" type="text/css" href="about.css">
+
+		<script src="getTotalHours.js" defer></script>
+		<link rel="stylesheet" type="text/css" href="savedatabase.css?num=7">
 		<link rel="icon" type="image/x-icon" href="./images/favicon2.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,9 +14,9 @@
 		<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
-		<script src="about.js?num=4" defer></script>
+		<script src="savedatabase.js?num=5" defer></script>
 		<!-- 'ALERTS' PACKAGE -->
-		<link rel="stylesheet" type="text/css" href="alerts.css?num=3">
+		<link rel="stylesheet" type="text/css" href="alerts.css?num=2">
 		<script src="alerts.js" defer></script>
 		<!-- END 'ALERTS' PACKAGE -->
 	</head>
@@ -24,15 +25,15 @@
 			<h1 id="title">RapidRecord</h1>
 		</div>
 		<div id="main">
-            <h3 id="welcome"></h3>
-			<h1 id="name">About</h1>
+			<h3 id="welcome">Options & Tools</h3>
+			<h1 id="name">Save Database</h1>
 			<div id="log-hours-container">
-				<p id="log-text">Hello! We are Owen and Ross, and we have developed the RapidRecord website to record hours for the 4405 robotics team! 
-                    Click the button below to view other team 4405-related sites and the "How to Use Video" which will teach you how to use this website. 
-                    Have fun!</p>
+				<p id="log-text">This will store all users' hours and log history (including instructor log history) in a recoverable JSON file.</p>
 			</div>
 			<div id="buttons">
-				<button class="nameentry" onclick="websites()">Websites</button><br><br>
+				<!-- Right over here, the toggleHour function takes in the hours (1 - 5) and -->
+				<!-- whatever button element (noted as 'this') called the function.          -->
+				<button class="hour-select" onclick="storedatabase()" id = "removei">Save Database</button>
 			</div>
 		</div>
 		
