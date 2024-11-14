@@ -51,6 +51,13 @@
 	font-family:'Kode Mono';
 	text-align:center;
 	margin-bottom:5px;
+}
+#welcomes {
+	margin-top:110px;
+	color:rgb(152, 152, 152);
+	font-family:'Kode Mono';
+	text-align:center;
+	margin-bottom:5px;
 	border-radius:10px;
 	height:fit-content;
 	padding:5px;
