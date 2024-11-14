@@ -17,6 +17,21 @@
 	z-index:20;
 
 }
+
+#welcome {
+	margin-top:110px;
+	color:rgb(152, 152, 152);
+	font-family:'Kode Mono';
+	text-align:center;
+	margin-bottom:5px;
+	background-color:rgb(29, 29, 29);
+	border-radius:10px;
+	height:fit-content;
+	padding:5px;
+	width:65vw;
+	margin-left:17.5vw;
+	box-sizing:border-box;
+}
 #title {
 	text-align:center;
 	font-family:'Kode Mono';
@@ -35,7 +50,7 @@
 	font-family:'Kode Mono';
 	text-align:center;
 	font-size:40px;
-	margin-top:110px;
+	margin-top:10px;
 	margin-bottom:5px;
 }
 #log-hours-container {
@@ -50,6 +65,8 @@
 	text-align:center;
 	display:inline-block;
 	font-size:20px;
+	box-sizing:border-box;
+	padding:10px;
 	
 }
 #buttons {
@@ -68,6 +85,7 @@
 	text-align:center;
 	outline:none;
 	margin-top:20px;
+	margin-bottom:20px;
 	height:60px;
 	border-radius:30px;
 	transition:background-color 0.5s, color 0.5s, width 0.5s, margin-left 0.5s;
