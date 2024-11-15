@@ -32,7 +32,7 @@ if (validpage == 1) {
 	self.location = "index.html"
 }
 
-let password = "PassTest"
+let password = "R3*f#qw^.U'_";//not the actual password, don't try it
 let passinput = null;
 let idnumber = "04405"
 let idinput = null;
