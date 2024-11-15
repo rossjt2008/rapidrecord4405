@@ -41,7 +41,7 @@ function clickSubmit() {
     //add code here to manage whatever needs to be managed in the JS, saving info, etc
     passinput = document.getElementById("password").value;
     idinput = document.getElementById("idnumber").value;
-    if (passinput == password && idinput == idnumber) {
+    if (passinput == password) {
         localStorage.setItem("SystemUser", idinput)
         self.location = "systemtools.html"
     } else {

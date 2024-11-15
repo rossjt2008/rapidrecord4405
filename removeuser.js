@@ -51,9 +51,9 @@ function determine_user() {
             if (txt != "FAILURE") {
                 if (txt == "1") {
                     persontype = "instructor"
-                    removethisuser(fullname)
                 } else {
                     persontype = "user"
+                    removethisuser(fullname)
                 }
             } else {
                 console.log("Invalid persontype.")

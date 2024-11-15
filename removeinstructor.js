@@ -38,8 +38,44 @@ function logout() {
     self.location = ("login.html")
 }
 
+
 function removethisinstructor() {
-    self.location = "addinstructor.html"
+    let firstname =  document.getElementById("firstname").value
+    let lastname =  document.getElementById("lastname").value
+    lastname = lastname[0].toUpperCase() + lastname.substring(1);
+    firstname = firstname[0].toUpperCase() + firstname.substring(1);
+    let fullname = firstname + " " + lastname;
+    fetch(`does_da_user_exist.php?name=${fullname}&num=` + Math.random())
+        .then(response => response.text())
+        .then((txt) => {
+            prompt(txt);
+            if (txt != "FAILURE") {
+                if (txt == "1") {
+                    persontype = "instructor"
+                    removethisuser(fullname)
+                } else {
+                    persontype = "user"
+                }
+            } else {
+                console.log("Invalid persontype.")
+                //alert("NUH-UH, YOU AIN'T ALLOW IN THESE PARTS, COWBOY")
+            }
+        })
+}
+
+function removethisuser(fullname) {
+    if (persontype == "instructor") {
+        fetch(`removesuperpeep.php?name=${fullname}&num=` + Math.random())
+            .then(response => response.text())
+            .then((txt) => {
+                self.location = self.location;
+            })
+        } else if (persontype == "user") {
+            alert(fullname + "is a student. For deletion, please go to 'Erase Instructor' in the system tools.")
+        } else {
+            alert("Sorry " + fullname + ", you are not currently on the 4405 robotics team. Please try again once you have registered.")
+        }
+        //self.location = self.location;
 }
 
 function clickDone() {

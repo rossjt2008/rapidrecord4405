@@ -1,6 +1,7 @@
 <?php
 $name = $_GET["name"];
 //$data = $_GET["data"];
+$numberidthing = $_GET["access_key"];
 
 require_once 'access.php';
 
@@ -13,7 +14,8 @@ if ($conn->connect_error) {
 }
 
 // Prepare an SQL statement with a WHERE clause
-$sql = "DELETE FROM users WHERE name= '$name'";
+$sql = "INSERT INTO users (`name`, `data`, `access_key`,`authority`) VALUES ('$name', '[]', '$numberidthing',1)";
+echo $sql;
 $stmt = $conn->prepare($sql);
 
 // Check if prepare() failed

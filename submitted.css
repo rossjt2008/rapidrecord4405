@@ -90,6 +90,7 @@
 #buttons {
 	width:100vw;
 	height:fit-content;
+	text-align:left;
 }
 .hour-select {
 	width:80vw;

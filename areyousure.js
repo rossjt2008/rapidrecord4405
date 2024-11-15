@@ -38,7 +38,56 @@ if (buttonclicked == "hours") {
 } else if (buttonclicked == "database") {
      usedatabase()
 }
+let create_alert_2 = {
+	withTitle: (title) => {
+		return {
+			withBody: (bodytxt,func) => {
+				if (current_popup == null) {
+					blur_div.style.display = "block";
 
+					let alert_div = document.createElement("div");
+					alert_div.className = "alert_body";
+					
+					let title_text = document.createElement("h1");
+					title_text.className = "title_text";
+					title_text.textContent = title;
+					
+					let body_text = document.createElement("p");
+					body_text.className = "body_text";
+					body_text.textContent = bodytxt;
+
+					let button = document.createElement("button");
+					button.className = "alert_button";
+					button.textContent = "Yes";
+					let button2 = document.createElement("button");
+					button2.className = "alert_button";
+					button2.textContent = "No";
+
+					button.addEventListener("click",() => {
+						current_popup.remove();
+						blur_div.style.display = "none";
+						current_popup = null;
+						func();
+					})
+					button2.addEventListener("click",() => {
+						current_popup.remove();
+						blur_div.style.display = "none";
+						current_popup = null;
+					})
+
+					alert_div.appendChild(title_text);
+					alert_div.appendChild(body_text);
+					alert_div.appendChild(button);
+					alert_div.appendChild(button2);
+
+					document.body.appendChild(alert_div);
+
+					current_popup = alert_div;
+				}
+			}
+		}
+	}
+}
 
 function usehours() {
     document.getElementById("name").textContent = "Clear Hours"
@@ -63,14 +112,31 @@ function remove() {
 }
 
 function clearhours() {
-    localStorage.clear()
-    alert("You have cleared all logged hours and history. A JSON file will be created and downloaded to your computer for recovery and archive purposes.")
+    create_alert_2.withTitle("WARNING").withBody("You are about to permanently EVERYBODY's hours... FOREVER. Are you sure about this?",() => {
+        localStorage.clear()
+        removeallHOURS();
+    })
+    
+    //alert("You have cleared all logged hours and history. A JSON file will be created and downloaded to your computer for recovery and archive purposes.")
+
 }
 
 function cleardatabase () {
     localStorage.clear()
     alert("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.")
 
+}
+
+function removeallHOURS() {
+    fetch(`removeliterallyalldata.php?num=` + Math.random())
+        .then(response => response.text())
+        .then((txt) => {
+            alert("You have erased all the hours. Sending you to the login page...")
+            document.addEventListener("click",() => {
+                self.location = self.location;
+            })
+        })
+        //self.location = self.location;
 }
 
 function clickBack() {

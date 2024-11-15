@@ -59,6 +59,13 @@
 	font-size:3vh;
 	margin-top:10px;
 }
+.hour-select-input {
+	width:80vw;
+	height:7vh;
+	margin-left:10vw;
+	font-size:3vh;
+	margin-top:10px;
+}
 #top-title {
 	height:70px;
 }
@@ -83,6 +90,13 @@
 }
 #log-hours-container {
 	margin-top:-10px;
+	margin-bottom:-8px;
+}
+.selected-button {
+	background-color:white;
+	color:rgb(30,30,30);
+	width:85vw;
+	margin-left:7.5vw;
 }
 /*@media (max-height: 820px) and (min-height: 750px) {
 	.hour-select {
