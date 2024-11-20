@@ -1,5 +1,8 @@
 <?php
 	$psw = "(no password)";
+	if (!isset($_COOKIE["psw"])) {
+		$psw = $_COOKIE["psw"];
+	}
 	if (!empty($_POST["psw"])) {
 		$psw = $_POST["psw"];
 	}
