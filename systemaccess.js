@@ -43,7 +43,7 @@ function clickSubmit() {
     idinput = document.getElementById("idnumber").value;
     if (passinput == password) {
         localStorage.setItem("SystemUser", idinput)
-        self.location = "systemtools.html"
+        self.location = "systemtools.php"
     } else {
         alert("The password is incorrect, an invalid id has been inputted, or one box was left blank. Please check the input boxes and try again.")
     }
