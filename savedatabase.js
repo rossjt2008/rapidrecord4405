@@ -34,6 +34,7 @@ if (validpage == 1) {
 
 function storedatabase() {
     alert("You have stored all logged hours and history to your computer. This file can be used for recovery and archive purposes.")
+    let saver = window.open("savadadatabasa.php","DOWNLOAD","width=500, height=400");
 }
 
 function clickBack() {
