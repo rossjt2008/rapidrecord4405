@@ -120,10 +120,20 @@ function clearhours() {
     //alert("You have cleared all logged hours and history. A JSON file will be created and downloaded to your computer for recovery and archive purposes.")
 
 }
-
 function cleardatabase () {
-    localStorage.clear()
-    alert("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.")
+    localStorage.clear();
+	let saver = window.open("savadadatabasa.php");
+	let interv = setInterval(() => {
+		if (saver.closed) {
+			console.log("ACTIVATED)");
+			fetch("delete_everything.php");
+			fetch("addsuperpeep.php?name=System%20Admin&access_key=04405");
+			alert("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.");
+			clearInterval(interv);
+			return 0;
+		}
+	},100)
+    
 
 }
 
