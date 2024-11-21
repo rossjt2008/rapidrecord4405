@@ -61,5 +61,7 @@
 		EOL;
 	} else {
 		echo '403 ACCESS FORBIDDEN: NUH-UH, NO ACCESS HERE';
+		header("Location: systemaccess.html");
+		die();
 	}
 ?>
