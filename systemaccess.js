@@ -41,12 +41,11 @@ function clickSubmit() {
     //add code here to manage whatever needs to be managed in the JS, saving info, etc
     passinput = document.getElementById("password").value;
     idinput = document.getElementById("idnumber").value;
-    if (passinput == password) {
-        localStorage.setItem("SystemUser", idinput)
-        self.location = "systemtools.php"
-    } else {
-        alert("The password is incorrect, an invalid id has been inputted, or one box was left blank. Please check the input boxes and try again.")
-    }
+    localStorage.setItem("SystemUser", idinput)
+    cookies.set("psw",passinput);
+    self.location = "systemtools.php";
+    //alert("The password is incorrect, an invalid id has been inputted, or one box was left blank. Please check the input boxes and try again.")
+    
 }
 function clickBack() {
     self.location = "teacheroptions.html"

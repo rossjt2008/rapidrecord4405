@@ -1,12 +1,15 @@
 <?php
 	$psw = "(no password)";
-	if (!isset($_COOKIE["psw"])) {
+	echo $_COOKIE["psw"];
+	if (isset($_COOKIE["psw"])) {
 		$psw = $_COOKIE["psw"];
+		echo "CUE COOKIE\n";
 	}
 	if (!empty($_POST["psw"])) {
 		$psw = $_POST["psw"];
+		echo "CUE POST\n";
 	}
-
+	echo "Entered password:" . $psw . "\n";
 
 	if ($psw == "0Rm1AfU@RcW3") {
 		echo <<<EOL
