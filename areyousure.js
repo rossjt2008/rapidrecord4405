@@ -58,10 +58,10 @@ let create_alert_2 = {
 
 					let button = document.createElement("button");
 					button.className = "alert_button";
-					button.textContent = "Yes";
+					button.textContent = "Got It";
 					let button2 = document.createElement("button");
 					button2.className = "alert_button";
-					button2.textContent = "No";
+					button2.textContent = "Exit";
 
 					button.addEventListener("click",() => {
 						current_popup.remove();
@@ -126,10 +126,16 @@ function cleardatabase () {
 	let interv = setInterval(() => {
 		if (saver.closed) {
 			console.log("ACTIVATED)");
-			fetch("delete_everything.php");
-			fetch("addsuperpeep.php?name=System%20Admin&access_key=04405");
-			alert("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.");
+			fetch("delete_everything.php")
+			.then(() => {
+				fetch("addsuperpeep.php?name=System%20Admin&access_key=04405");
+			})
+			
+			//alert("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.");
 			clearInterval(interv);
+			create_alert_2.withTitle("SUCCESS").withBody("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.",() => {
+				self.location = "login.html";
+			})
 			return 0;
 		}
 	},100)
