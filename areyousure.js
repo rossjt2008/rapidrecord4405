@@ -122,7 +122,7 @@ function clearhours() {
 }
 function cleardatabase () {
     localStorage.clear();
-	let saver = window.open("savadadatabasa.php");
+	let saver = window.open("savadadatabasa.php","DOWNLOAD","width=500, height=400");
 	let interv = setInterval(() => {
 		if (saver.closed) {
 			console.log("ACTIVATED)");
@@ -133,7 +133,7 @@ function cleardatabase () {
 			
 			//alert("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.");
 			clearInterval(interv);
-			create_alert_2.withTitle("SUCCESS").withBody("You have cleared the entire database. A JSON file will be created and downloaded to your computer for recovery and archive purposes.",() => {
+			create_alert_2.withTitle("SUCCESS").withBody("You have cleared the entire database. A CSV file has been created and downloaded to your computer for recovery and archive purposes.",() => {
 				self.location = "login.html";
 			})
 			return 0;

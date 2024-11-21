@@ -89,7 +89,6 @@ echo <<<EOL
 </script>
 
 EOL;
-
 echo "<table>";
 echo "<style>@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Kode+Mono:wght@400..700&family=Open+Sans:ital,wght@0,300;1,300&display=swap');</style>";
 echo "<style>#frst {background-color: rgb(200,200,200); }</style><tr id='frst'><td>ID</td><td>NAME</td><td>ACCESS_KEY</td><td>DATA</td><td>AUTHORITY</td>";
@@ -109,6 +108,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 echo "</table>";
+echo "<br><br><p>Close this popup to finish process.</p><br>";
 echo <<<EOL
 <script>
 tableToCSV();
