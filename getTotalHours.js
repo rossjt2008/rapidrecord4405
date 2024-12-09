@@ -5,7 +5,9 @@ function getTotalHours(u_fullname,u_callback) {
 			let data = JSON.parse(txt);
 			let tHours = 0;
 			data.forEach((val) => {
-				tHours += val.hours;
+				if (val.hours != 0 && val.hours != "0") {
+					tHours += val.hours;
+				}
 			})
 			u_callback(tHours);
 		})
