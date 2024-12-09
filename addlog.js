@@ -82,111 +82,19 @@ function toggleHour(h,button) {
 function clickDone() {
     self.location = ("teacheroptions.html")
 }
-function addHours() {
-    try {
-        let firstname = document.getElementById("firstname").value
-        firstname = firstname[0].toUpperCase() + firstname.substring(1);
-        let lastname = document.getElementById("lastname").value
-        lastname = lastname[0].toUpperCase() + lastname.substring(1);
-    } catch (typeError) {
-        alert("One of the required input boxes has not been filled. Please check the input boxes and try again.")
-        return;
-    }
-    let firstname = document.getElementById("firstname").value
+function addLog() {
+    let firstname = document.getElementById("firstname").value;
     firstname = firstname[0].toUpperCase() + firstname.substring(1);
-    let lastname = document.getElementById("lastname").value
+    let lastname = document.getElementById("lastname").value;
     lastname = lastname[0].toUpperCase() + lastname.substring(1);
-    let fullname = firstname + " " + lastname
-    if (members.includes(fullname)) {
-        let customhours = document.getElementById("customhours").value
-        customhours = parseInt(customhours)
-        console.log(customhours)
-        if (Number.isNaN(customhours) == true) {
-            customhours = 0
-            alert("The hour input box is blank or has an 'e' in it. Type a valid number into it and try again.")
-            return;
-        } else {
-            console.log("Hour input is ok.")
+    let fullname = firstname + " " + lastname;
+    let regexp = /^[0-9]{0,}\/[0-9]{0,}\/[0-9]{0,}$/;
+    if (regexp.test(document.querySelector("#date").value)) {
+        let comments = document.querySelector("#reason").value;
+        let date_to_append = document.querySelector("#date").value;
+        if (comments != "") {
+            date_to_append += " - " + document.getElementById("reason").value;
         }
-        changeHoursBy(customhours);
-        var previoushours = parseInt(localStorage.getItem("totalhours"))
-        var newhours = previoushours + customhours
-        localStorage.setItem("previoushours", newhours)
-        alert("Successfully added "+ customhours +" hours to "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
-        localStorage.setItem("totalhours", newhours)
-        //self.location = "teacherindex.html";  //or whichever file comes next
-    } else {
-        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
-    }
-}
-function removeHours() {
-    try {
-        let firstname = document.getElementById("firstname").value
-        firstname = firstname[0].toUpperCase() + firstname.substring(1);
-        let lastname = document.getElementById("lastname").value
-        lastname = lastname[0].toUpperCase() + lastname.substring(1);
-    } catch (typeError) {
-        alert("One of the required input boxes has not been filled. Please check the input boxes and try again.")
-        return;
-    }
-    let firstname = document.getElementById("firstname").value
-    firstname = firstname[0].toUpperCase() + firstname.substring(1);
-    let lastname = document.getElementById("lastname").value
-    lastname = lastname[0].toUpperCase() + lastname.substring(1);
-    let fullname = firstname + " " + lastname
-    if (members.includes(fullname)) {
-        let customhours = document.getElementById("customhours").value
-        customhours = parseInt(customhours)
-        if (Number.isNaN(customhours)) {
-            customhours = 0
-            alert("The hour input box is blank or has an 'e' character in it. Type a number into it and try again.")
-            return;
-        } else {
-            console.log("Hour input is ok.")
-        }
-        changeHoursBy(-customhours);
-        var previoushours = parseInt(localStorage.getItem("totalhours"))
-        var newhours = previoushours - customhours
-        localStorage.setItem("previoushours", newhours)
-        alert("Successfully removed "+ customhours +" hours from "+ fullname + "'s balance. "+ fullname +"'s total balance is now " + newhours + ".")
-        localStorage.setItem("totalhours", newhours)
-        //self.location = "teacherindex.html";  //or whichever file comes next
-    } else {
-        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
-    }
-}
-function addlog() {
-    try {
-        let firstname = document.getElementById("firstname").value
-        firstname = firstname[0].toUpperCase() + firstname.substring(1);
-        let lastname = document.getElementById("lastname").value
-        lastname = lastname[0].toUpperCase() + lastname.substring(1);
-    } catch (typeError) {
-        alert("One of the required input boxes has not been filled. Please check the input boxes and try again.")
-        return;
-    }
-    let firstname = document.getElementById("firstname").value
-    firstname = firstname[0].toUpperCase() + firstname.substring(1);
-    let lastname = document.getElementById("lastname").value
-    lastname = lastname[0].toUpperCase() + lastname.substring(1);
-    let fullname = firstname + " " + lastname
-    if (members.includes(fullname)) {
-        //and then switch page
-        localStorage.setItem("fullname", fullname)
-        localStorage.setItem("lastpage", "teacherindex.html")
-	    self.location = "history.html";  //or whichever file comes next
-    } else {
-        alert(fullname + " is not currently registered on the 4405 robotics team. Make sure you inputted the name correctly and try again.")
-    }
-}
-function changeHoursBy(hrs) {
-    let firstname = document.getElementById("firstname").value
-    firstname = firstname[0].toUpperCase() + firstname.substring(1);
-    let lastname = document.getElementById("lastname").value
-    lastname = lastname[0].toUpperCase() + lastname.substring(1);
-    let fullname = firstname + " " + lastname
-    //prompt("HRS: " + hrs + " // NAME: " + fullname)
-    if (hrs != 0) {
         fetch(`getData.php?name=${fullname}&num=` + Math.random())
             .then(response => response.text())
             .then((txt) => {
@@ -194,7 +102,7 @@ function changeHoursBy(hrs) {
                 if (txt != "") {
                     data = JSON.parse(txt);
                 }
-                data.unshift({date: new Date().toLocaleDateString(), hours: hrs});
+                data.unshift({date: date_to_append, hours: document.querySelector("#customhours").value});
                 data = JSON.stringify(data);
                 fetch(`addData.php?name=${fullname}&data=${data}&num=` + Math.random())
                     .then(response => response.text())
@@ -204,5 +112,7 @@ function changeHoursBy(hrs) {
                     })
                 
             })
+    } else {
+        alert("Invalid data, or incorrect date format");
     }
 }

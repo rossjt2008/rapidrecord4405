@@ -46,7 +46,8 @@
                 <input class="hour-select-input" type="text" id="lastname" placeholder="Last Name">
                 <input class="hour-select-input" type="number" id="customhours" placeholder="Hour Input" onchange="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');toggleHour(this.value, this)" />
 				<input class="hour-select-input" type="text" id="date" placeholder="Date (mm/dd/yy)">
-				<button class="hour-select" onclick="removeHours()">Add Log</button>
+				<input class="hour-select-input" type="text" id="reason" placeholder="Comments">
+				<button class="hour-select" onclick="addLog()">Add Log</button>
 			</div>
 		</div>
 		
