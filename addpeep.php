@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
     echo "Data: " . $row["data"] . "<br>";
     // ... other fields as needed
 } else {
-    echo "No results found for " . $nameToSearch;
+    echo "No results found for person specified.";
 }
 
 $stmt->close();

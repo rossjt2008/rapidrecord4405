@@ -144,15 +144,22 @@ function cleardatabase () {
 }
 
 function removeallHOURS() {
-    fetch(`removeliterallyalldata.php?num=` + Math.random())
-        .then(response => response.text())
-        .then((txt) => {
-            alert("You have erased all the hours. Sending you to the login page...")
-            document.addEventListener("click",() => {
-                self.location = self.location;
-            })
-        })
-        //self.location = self.location;
+	//self.location = self.location;
+	let saver = window.open("savadadatabasa.php","DOWNLOAD","width=500, height=400");
+	let interv = setInterval(() => {
+		if (saver.closed) {
+			clearInterval(interv);
+			fetch(`removeliterallyalldata.php?num=` + Math.random())
+				.then(response => response.text())
+				.then((txt) => {
+					alert("You have erased all the hours. Sending you to the login page...")
+					document.addEventListener("click",() => {
+						self.location = self.location;
+					})
+				})
+			return 0;
+		}
+	},100)
 }
 
 function clickBack() {

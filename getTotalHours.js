@@ -6,7 +6,7 @@ function getTotalHours(u_fullname,u_callback) {
 			let tHours = 0;
 			data.forEach((val) => {
 				if (val.hours != 0 && val.hours != "0") {
-					tHours += val.hours;
+					tHours += Number(val.hours); // OWEN: I added Number() for data fallback, just in case the data happens to be a string or something.
 				}
 			})
 			u_callback(tHours);

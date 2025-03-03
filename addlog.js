@@ -102,7 +102,7 @@ function addLog() {
                 if (txt != "") {
                     data = JSON.parse(txt);
                 }
-                data.unshift({date: date_to_append, hours: document.querySelector("#customhours").value});
+                data.unshift({date: date_to_append, hours: Number(document.querySelector("#customhours").value)});
                 data = JSON.stringify(data);
                 fetch(`addData.php?name=${fullname}&data=${data}&num=` + Math.random())
                     .then(response => response.text())
