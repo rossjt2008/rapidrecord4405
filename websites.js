@@ -19,13 +19,13 @@ function secondpage() {
     self.location = "https://www.firstinspires.org/robotics/frc"
 }
 function thirdpage() {
-    self.location = "https://www.plymouthchristian.org/"
+    self.location = "https://perceptive.team4405.com/login"
 }
 function fourthpage() {
-    self.location = "https://www.youtube.com/watch?v=xjTvB0dmSU8"
+    self.location = "https://www.plymouthchristian.org/"
 }
 function fifthpage() {
-    self.location = ""
+    self.location = "https://www.youtube.com/watch?v=xjTvB0dmSU8"
 }
 function sixthpage() {
     self.location = ""
